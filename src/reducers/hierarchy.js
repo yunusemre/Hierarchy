@@ -12,7 +12,6 @@ export function hierarchy(state = init, action) {
       return { ...state, data: action.payload }
     case types.REMOVE_FILTER:
       const newArray = findAndDel(state.data, action.id)
-      console.log('newArray', newArray)
       return { ...state, data: newArray }
     case types.ERROR:
       return { ...state, errorMessage: action.message }

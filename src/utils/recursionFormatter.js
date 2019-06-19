@@ -1,5 +1,3 @@
-import { templateLiteral } from '@babel/types'
-
 const dataConverter = arr => {
   var tree = [],
     mappedArr = {},
@@ -24,11 +22,10 @@ const dataConverter = arr => {
   return tree
 }
 
-let findAndDel = (arr, id) => {
+const findAndDel = (arr, id) => {
   let newArray = arr.filter(res => {
     return res.ID !== id
   })
-
   if (newArray.length === arr.length) {
     newArray.children = arr.map(item => {
       if (item.children && item.children.length > 0) {
@@ -37,16 +34,7 @@ let findAndDel = (arr, id) => {
       return item
     })
   }
-
   return newArray
-  // return arr.some((item, index, ar) => {
-  //   if (item.ID === id) {
-  //     ar.splice(index, 1)
-  //     return arr
-  //   } else {
-  //     return findAndDel(item.children, id)
-  //   }
-  // })
 }
 
 export { dataConverter, findAndDel }

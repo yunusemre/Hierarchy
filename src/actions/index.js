@@ -14,14 +14,12 @@ const errorHandling = (message) => ({
   message: message
 })
 
-export const removeFilter = (id) => {
-  return {
-    type: types.REMOVE_FILTER,
-    id
-  }
-};
+export const removeFilter = (id) => ({
+  type: types.REMOVE_FILTER,
+  id: id
+})
 
-export function fetchData() {
+export const fetchData = () => {
   return (dispatch) => {
     axios.get(API)
       .then(response => {

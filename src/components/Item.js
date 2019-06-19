@@ -30,14 +30,16 @@ export default class Item extends React.Component {
             <span aria-hidden='true'>&times;</span>
           </button>
         </li>
-        <ul className='mT10'>
-          {collapsed &&
-            item.children &&
-            item.children.length > 0 &&
-            item.children.map(res => {
-              return <Item key={res.ID} id={res.ID} item={res} removeID={removeID} />
-            })}
-        </ul>
+        <li>
+          <ul className='mT10'>
+            {collapsed &&
+              item.children &&
+              item.children.length > 0 &&
+              item.children.map(res => {
+                return <Item key={res.ID} id={res.ID} item={res} removeID={removeID} />
+              })}
+          </ul>
+        </li>
       </ul>
     )
   }

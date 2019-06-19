@@ -5,7 +5,7 @@ import Item from './Item'
 import { removeFilter } from '../actions/'
 
 class ItemList extends React.Component {
-  onRemoveFilter(id) {
+  onRemoveFilter = (id) => {
     this.props.removeFilter(id)
   }
   render() {
@@ -15,7 +15,7 @@ class ItemList extends React.Component {
         {[...data].map(result => {
           return (
             <div id={result.ID} key={result.ID} className='mB5'>
-              <Item removeID={this.onRemoveFilter.bind(this)} item={result} />
+              <Item removeID={this.onRemoveFilter} item={result} />
             </div>
           )
         })}
@@ -24,17 +24,19 @@ class ItemList extends React.Component {
   }
 }
 
+ItemList.defaultProps = {
+  data: []
+}
+
 ItemList.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.array.isRequired,
   removeFilter: PropTypes.func,
   onRemoveFilter: PropTypes.func
 }
 
-const mapStateToProps = state => {
-  return {
-    data: state.hierarchy.data
-  }
-}
+const mapStateToProps = state => ({
+  data: state.hierarchy.data
+})
 
 const mapDispatchToProps = {
   removeFilter

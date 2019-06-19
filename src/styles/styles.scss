@@ -1,0 +1,13 @@
+@import './base';
+
+body {
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  background: white;
+  font-size: 13px;
+}
+
+
